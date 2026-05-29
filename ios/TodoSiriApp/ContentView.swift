@@ -15,6 +15,7 @@ struct ContentView: View {
                         newTodoTitle = ""
                     }
                     .accessibilityLabel("Add to-do")
+                    .disabled(newTodoTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
 
                 List(store.todos) { todo in
