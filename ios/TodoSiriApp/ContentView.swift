@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var store = TodoStore.shared
+    @ObservedObject private var store = TodoStore.shared
     @State private var newTodoTitle = ""
 
     var body: some View {
@@ -14,6 +14,7 @@ struct ContentView: View {
                         store.add(title: newTodoTitle)
                         newTodoTitle = ""
                     }
+                    .accessibilityLabel("Add to-do")
                 }
 
                 List(store.todos) { todo in
